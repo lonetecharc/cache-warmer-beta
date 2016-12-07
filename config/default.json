@@ -1,0 +1,18 @@
+{
+    "API": {
+        "park": {
+            "urlPUB7": "https://api.nbc.com/v3.13",
+            "urlAndriod": "https://api.nbc.com/v3.13",
+            "urliOS": "https://api.nbc.com/v3.13",
+            "urlSamsung": "https://api.nbc.com/v3.13",
+            "urlRoku": "https://api.nbc.com/v3.1",
+            "maxAge": 1000,
+            "timeout": 60000,
+            "debug": false
+        }
+    },
+    "APISignature":{
+        "globalnavShows" : "/collections?filter[name]=global-nav-featured-shows&fields[shows]=urlAlias,shortTitle,sortTitle&include=shows",
+        "showDetail" : "/shows?filter[urlAlias]=<SHOW_NAME>&fields[shows]=category,colors,description,internalId,name,navigation,reference,schemaType,shortDescription,shortTitle,urlAlias,showTag,social,tuneIn,type,active,isCoppaCompliant&fields[seasons]=seasonNumber,contestantTitle&fields[images]=derivatives,altText,link&fields[genereticProperties]=showCollection,reltioGuestCalendar&include=image,images,compactImage,coverImageMobile,genereticProperties,season,credit,credit.person,credit.person.image,credit.character,showCollection.collections.slides.heroImage,showCollection.collections.slides.compactHeroImage,genereticProperties.showCollection.collections.slides.heroImage,genereticProperties.showCollection.collections.slides.compactHeroImage,genereticProperties.showCollection.collections.features,genereticProperties.showCollection.collections.features.image,genereticProperties.showCollection.collections.slides.compactHeroImage,genereticProperties.showCollection.collections.marketingBands,genereticProperties.showCollection.collections.marketingBands.images,genereticProperties.showCollection.collections.marketingBands.compactImage,guests&derivatives=landscape.widescreen.size640.x1,landscape.widescreen.size640.x2,landscape.widescreen.size1024.x1,landscape.widescreen.size1600.x1,landscape.widescreen.size1920.x1,landscape.fivefor.size480.x1,landscape.fivefor.size480.x2,landscape.fivefor.size750.x1,landscape.fivefor.size1024.x1,portrait.square.size350.x1,portrait.square.size480.x1,portrait.square.size750.x1,landscape.hero.size1600.x1"
+    }
+}

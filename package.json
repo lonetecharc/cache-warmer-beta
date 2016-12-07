@@ -1,0 +1,27 @@
+{
+  "name": "cachewarm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build:live",
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "0.0.2",
+    "nodemon": "^1.11.0",
+    "ts-node": "^1.7.0",
+    "typescript": "^2.0.10"
+  },
+  "dependencies": {
+    "@reactivex/rxjs": "^5.0.0-rc.5",
+    "axios": "^0.15.3",
+    "config": "^1.24.0",
+    "es6-promise": "^4.0.5",
+    "http": "0.0.0",
+    "rxjs": "^5.0.0-rc.5"
+  }
+}

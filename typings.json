@@ -1,0 +1,9 @@
+{
+  "globalDependencies": {
+    "axios": "registry:dt/axios#0.9.1+20161016142654",
+    "config": "registry:dt/config#0.0.0+20160317120654"
+  },
+  "globalDevDependencies": {
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160602141504"
+  }
+}
