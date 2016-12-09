@@ -1,4 +1,7 @@
 {
+    "FromMixpanel" : true,
+    "key" : "",
+    "secret" : "",
     "API": {
         "park": {
             "urlPUB7": "https://api.nbc.com/v3.13",

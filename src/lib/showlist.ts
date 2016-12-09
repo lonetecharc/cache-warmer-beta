@@ -4,7 +4,7 @@ import Http = require('http');
 import * as axios from 'axios';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map'
-
+import {Promise} from 'es6-promise';
 export class ShowList extends UrlCreator{
     constructor(baseUrl: string, apiSignature: string){
         super(baseUrl,apiSignature);
