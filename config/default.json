@@ -2,6 +2,9 @@
     "FromMixpanel" : true,
     "key" : "",
     "secret" : "",
+    "Hour_Of_The_Day" : "12",
+    "Minute_of_Hour" : "12:00",
+    "Resources_To_Warm" : ["shows","videos"], //,"schedules","collections"],
     "API": {
         "park": {
             "urlPUB7": "https://api.nbc.com/v3.13",

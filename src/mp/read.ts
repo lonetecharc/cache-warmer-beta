@@ -12,18 +12,19 @@ export class MixPanelReader{
         });
     }
 
-    getUrls(whereClause:string): Promise<string[]>{
+    getUrls(dateRange: string, whereClause: string): Promise<string[]>{
         return this.panel.export({
-            from_date: "2016-12-08",
-            to_date: "2016-12-08",
+            from_date: dateRange,
+            to_date: dateRange,
             event: ["API Request"],
-            where:  whereClause //'(properties["Resource"] == "shows" or properties["Resource"] == "videos" or properties["Resource"] == "collections") and (properties["Cached in Redis"] == "True") and (properties["Event Time: Minute of Hour"] == "15:00")'
+            where:  whereClause
             }).then(function(data) {
-            //console.log(data);
-                return data.map(x=> {
-                    //console.log(x.properties.URL)
-                    return  x.properties.URL;
+                 return data.map(x=> {
+                        console.log(x.properties.URL)
+                        return  x.properties.URL;
                 });
+            }).catch(function(data){
+                console.log('in MP read');
             });
     }
 }
