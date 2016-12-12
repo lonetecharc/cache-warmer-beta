@@ -1,9 +1,7 @@
 {
     "FromMixpanel" : true,
-    /*"key" : "cc1e888ccae4544de902ed8d5746057e",
-    "secret" : "21f6f5247b80a813510ad7d59d69ddce",*/
-    "key" : "e3c42ad688f232ef73d0bddc68edf058",
-    "secret" : "ad139e89e857d82ba2ca3adfd37331ed",
+    "key" : "",
+    "secret" : "",
     "Hour_Of_The_Day" : "12",
     "Minute_of_Hour" : "12:00",
     "Resources_To_Warm" : ["shows","videos"], //,"schedules","collections"],

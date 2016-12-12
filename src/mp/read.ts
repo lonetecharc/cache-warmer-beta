@@ -23,8 +23,8 @@ export class MixPanelReader{
                         console.log(x.properties.URL)
                         return  x.properties.URL;
                 });
-        }).catch(function(data){
-            console.log('in MP read');
-        });
+            }).catch(function(data){
+                console.log('in MP read');
+            });
     }
 }
