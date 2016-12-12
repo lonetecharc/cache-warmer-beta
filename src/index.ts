@@ -9,11 +9,14 @@ import { ShowList } from './lib/showlist';
 import { ShowCollectionDetails } from './lib/showcollectiondetails';
 import { Promise } from 'es6-promise';
 import { onlyUnique } from './util/filterunique'
+import * as moment from 'moment';
 import * as fs from 'fs';
 
 import { MixPanelReader } from './mp/read';
 import { HttpCallStatus } from './model/generic';
 import { HttpCaller } from './lib/httpcaller';
+
+import { Warmer } from './lib/warmer';
 
 type Falsey = '' | false | null | undefined;
 const isReadFromMixpanel : any = config.get('FromMixpanel');
@@ -24,19 +27,65 @@ function checkRead(readFromMixpanel : string | Falsey){
 
 if(checkRead(isReadFromMixpanel)){
     console.log('Reading Mixpanel.. ');
-    let MP = new MixPanelReader(
+
+    const warmer = new Warmer(
+        config.get('key').toString(),
+        config.get('secret').toString(),
+        new HttpCaller()
+    );
+    const eventQueryDate = moment(new Date()).subtract(2,"days").format('YYYY-MM-DD');
+    const hourOfTheDay = config.get('Hour_Of_The_Day');
+    const minuteOfTheHour = config.get('Minute_of_Hour');
+
+    let resourcesToWarm : string[] = config.get('Resources_To_Warm').toString().split(',');
+    console.log('Fetching data for date ' + eventQueryDate + ' at ' + config.get('Hour_Of_The_Day') + ':' + config.get('Minute_of_Hour'));
+
+    resourcesToWarm.forEach(element => {
+        let query = `(properties["Event Time: Hour of Day"] == "${hourOfTheDay}")
+                     and (properties["Event Time: Minute of Hour"] == "${minuteOfTheHour}")
+                     and (properties["Resource"] == "${element}")`;
+        warmer.warm(eventQueryDate,query);
+    });
+
+
+    /*let videoQuery = `(properties["Event Time: Hour of Day"] == "12")
+                     and (properties["Event Time: Minute of Hour"] == "12:00")
+                     and (properties["Resource"] == "videos")`;
+     warmer.warm(eventQueryDate,videoQuery);*/
+
+    /*let MP = new MixPanelReader(
         config.get('key').toString(),
         config.get('secret').toString()
     );
     let httpCaller = new HttpCaller();
-    let urlList : Promise<string[]> = MP.getUrls('(properties["Resource"] == "shows" or properties["Resource"] == "videos" or properties["Resource"] == "collections") and (properties["Cached in Redis"] == "True") and (properties["Event Time: Minute of Hour"] == "15:00")');
-    urlList.then(function(urlData){
+    let eventQueryDate = moment(new Date()).subtract(2,"days").format('YYYY-MM-DD');
+    console.log(eventQueryDate);
+
+    //warm shows
+    let showQuery = `(properties["Event Time: Hour of Day"] == "12")
+                     and (properties["Event Time: Minute of Hour"] == "12:00")
+                     and (properties["Resource"] == "shows")`;
+    let urlShowList : Promise<string[]> = MP.getUrls(eventQueryDate, showQuery);
+    urlShowList.then(function(urlData){
         urlData.filter(onlyUnique).forEach(function(url){
             httpCaller.makecall('https://api.nbc.com'+url[0]).then(function(warmed){
                 console.log('Url to warm: ' + warmed.status + ' : ' + warmed.url);
             })
         });
     });
+
+    //warm videos
+    let videosQuery = `(properties["Event Time: Hour of Day"] == "12")
+                     and (properties["Event Time: Minute of Hour"] == "12:00")
+                     and (properties["Resource"] == "videos")`;
+    let urlVideoList : Promise<string[]> = MP.getUrls(eventQueryDate, videosQuery);
+    urlVideoList.then(function(urlData){
+        urlData.filter(onlyUnique).forEach(function(url){
+            httpCaller.makecall('https://api.nbc.com'+url[0]).then(function(warmed){
+                console.log('Url to warm: ' + warmed.status + ' : ' + warmed.url);
+            })
+        });
+    });*/
 
 
 }else{
