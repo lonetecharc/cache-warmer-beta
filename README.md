@@ -10,8 +10,8 @@
      - `typings install dt~colors --global --save`
      - `typings install dt~config --global --save`
      - `typings install dt~es6-shim --global --save`
-     - `typings install dt~<mixpanel> --global --save`
-     - `typings install dt~<moment> --global --save`
+     - `typings install dt~mixpanel --global --save`
+     - `typings install dt~moment --global --save`
 5. Start Cache Warmer code with `npm start client=<CLIENT_VALUE>` viz. CLIENT_VALUE = nbcGeneretic OR nbcAppAndriod OR nbcRokuApp OR nbcAppIos
 
 ### Config values to be set
