@@ -1,6 +1,5 @@
 ###BETA VERSION OF CACHE WARMER
 
-
 ### Step-by-step install guide
 1. Install [NodeJS](https://github.com//joyent/node) from your package manager. On OS X this is `brew install node`.
 2. Install [Typings](https://www.npmjs.com/package/typings) globally with `npm install -g typings`.
@@ -21,3 +20,4 @@
 4. Hour_Of_The_Day = any number between 0 to 23
 5. Minute_of_Hour = any valid minute value for the hour viz. 15:00 OR 12:02
 6. Resources_To_Warm = Array of resources viz.["shows","videos","schedules","collections"]
+
