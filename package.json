@@ -16,11 +16,12 @@
     "retyped-mixpanel-tsd-ambient": "0.0.0-0",
     "ts-node": "^1.7.0",
     "tslint": "^4.0.2",
-    "typescript": "^2.0.10"
+    "typescript": "^2.1.4"
   },
   "dependencies": {
     "@reactivex/rxjs": "^5.0.0-rc.5",
     "axios": "^0.15.3",
+    "colors": "^1.1.2",
     "config": "^1.24.0",
     "es6-promise": "^4.0.5",
     "http": "0.0.0",

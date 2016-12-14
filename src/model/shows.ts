@@ -1,5 +1,5 @@
-export class Show{
-    id:AAGUID;
-    urlAlias:string;
-    shortTitle:string;
+export class Show {
+    id: AAGUID;
+    urlAlias: string;
+    shortTitle: string;
 }

@@ -1,4 +1,4 @@
-export class HttpCallStatus{
+export class HttpCallStatus {
     status: number;
     url: string;
 }
