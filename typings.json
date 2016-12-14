@@ -3,6 +3,7 @@
     "axios": "registry:dt/axios#0.9.1+20161016142654",
     "colors": "registry:dt/colors#0.6.0-1+20160914114039",
     "config": "registry:dt/config#0.0.0+20160317120654",
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160726072212",
     "mixpanel": "registry:dt/mixpanel#0.0.0+20160317120654",
     "moment": "registry:dt/moment#2.11.1+20161010105546"
   },
