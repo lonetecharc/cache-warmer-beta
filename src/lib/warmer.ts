@@ -11,7 +11,7 @@ export class Warmer {
     private MP: MixPanelReader;
     private urlList: Promise<MpEvent[]>;
     private httpCaller: HttpCaller;
-    constructor(key, secret, caller) {
+    constructor(caller) {
         this.MP = new MixPanelReader(
             config.get("key").toString(),
             config.get("secret").toString()

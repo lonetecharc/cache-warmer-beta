@@ -29,8 +29,6 @@ if (checkRead(isReadFromMixpanel)) {
     console.log("Reading Mixpanel.. ");
 
     const warmer = new Warmer(
-        config.get("key").toString(),
-        config.get("secret").toString(),
         new HttpCaller()
     );
     const eventQueryDate = moment(new Date()).subtract(1, "days").format("YYYY-MM-DD");
